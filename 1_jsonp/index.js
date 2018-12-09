@@ -6,7 +6,7 @@ var jsonp = function ({ cb, url, params }) {
   return new Promise((resolve) => {
     let script = document.createElement('script')  // 动态add  script元素
     window[cb] = function (data) {
-      document.removeChild(script)
+      document.body.removeChild(script)
       resolve(data)
     }
     let paramsArr = []
