@@ -7,7 +7,6 @@ const whiteList = [
 
 app.use((req, res, next) => {
   let { origin } = req.headers
-  console.log(req.headers)
   if (whiteList.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin)
   }
@@ -15,7 +14,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/api/a', (req, res) => {
-  res.end('ok')
+  res.end('okkkkkkk')
 })
 
 app.listen(8000)

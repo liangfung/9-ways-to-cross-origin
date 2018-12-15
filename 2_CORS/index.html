@@ -9,8 +9,7 @@
 <body>
     <script>
         function handleClick() {
-          console.log('aa')
-          fetch('http://localhost:8000/api/a')
+          fetch('http://localhost:8000/api/a').then(res=>{console.log(res.data)})
         }
       </script>
 <button onclick="handleClick()">click me</button>
