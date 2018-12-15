@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="http://localhost:4000/c.html" frameborder="0" onload="load()" id="iframe"></iframe>
+  <script>
+    // a和b同域
+    // c不同域
+    // a先引用iframe c（跨域），在c中修改window.name
+    // c onload之後，iframe重新引用跟a同域的b，但是iframe的contentWindow.name不會變
+    let first = true
+    function load() {
+      var iframe = document.getElementById('iframe')
+      if(first) {
+        iframe.src = 'http://localhost:3000/b.html'
+        first = false
+      } else {
+        // a通過同域的b
+        // 獲取到了不同域的c的window.name
+        console.log(iframe.contentWindow.name)
+      }
+    }
+  </script>
+</body>
+</html>
